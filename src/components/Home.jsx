@@ -1,25 +1,23 @@
-import React, { Component } from "react";
-import FantasyData from "../data/fantasy.json";
-import HistoryData from "../data/history.json";
-import HorrorData from "../data/horror.json";
-import RomanceData from "../data/romance.json";
-import ScifiData from "../data/scifi.json";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { Row } from "react-bootstrap";
-import ListGroup from 'react-bootstrap/ListGroup';
+import React, { Component } from 'react';
+import { Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import SingleBook from './SingleBook';
+import FantasyData from '../data/fantasy.json';
+import HistoryData from '../data/history.json';
+import HorrorData from '../data/horror.json';
+import RomanceData from '../data/romance.json';
+import ScifiData from '../data/scifi.json';
 import "./Home.css";
-import Footer from "./Footer"; 
-import NavBar from "./NavBar";
+import Footer from './Footer';
+import NavBar from './NavBar';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
-      selectedCategory: "All",
+      searchTerm: '',
+      selectedCategory: 'All',
       currentPage: 1,
-      itemsPerPage: 20, // Numero di elementi da visualizzare per pagina
+      itemsPerPage: 20,
     };
   }
 
@@ -66,29 +64,22 @@ class Home extends Component {
           selectedCategory={selectedCategory}
         />
 
-        <input
-          type="text"
-          placeholder="cerca il libro"
-          onChange={this.handleSearchChange}
-          value={searchTerm}
-          className="form-control my-3 w-50"
-        />
+        <InputGroup className="my-3 w-50">
+          <FormControl
+            placeholder="cerca il libro"
+            onChange={this.handleSearchChange}
+            value={searchTerm}
+          />
+        </InputGroup>
 
-<Row className="justify-content-center gap-3 my-5 w-100">
+        <Row className="justify-content-center gap-3 my-5 w-100">
           {filteredAndSearchedBooks.map((libro) => (
-            <Card id="carte" className="bg-secondary text-center" key={libro.id}>
-              <Card.Img src={libro.img} className="h-50" />
-              <Card.Body>
-                <Card.Title>{libro.title}</Card.Title>
-                <Card.Text>{libro.category}</Card.Text>
-              </Card.Body>
-              <ListGroup>
-                <ListGroup.Item className="bg-secondary align-self-center" id="prezzo">€{libro.price}</ListGroup.Item>
-                <Button variant="outline-light" className="m-3 w-50 align-self-center">Compra</Button>
-              </ListGroup>
-            </Card>
+            <Col key={libro.id} md={2} className="mb-4">
+              <SingleBook book={libro} /> {/* Utilizza il componente SingleBook */}
+            </Col>
           ))}
         </Row>
+
         <Footer
           currentPage={currentPage}
           itemsPerPage={itemsPerPage}
