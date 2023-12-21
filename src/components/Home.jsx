@@ -1,4 +1,3 @@
-// Home.js
 import React, { Component } from 'react';
 import { Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import SingleBook from './SingleBook';

@@ -1,4 +1,3 @@
-// CommentArea.js
 import React, { Component } from 'react';
 import { Modal, ListGroup, Form, Button } from 'react-bootstrap';
 
@@ -63,7 +62,6 @@ class CommentArea extends Component {
 
       if (response.ok) {
         console.log('Recensione inviata con successo!');
-        // Aggiorna la lista dei commenti nel componente CommentArea
         this.fetchComments();
       } else {
         console.error('Errore nell\'invio della recensione');
@@ -72,7 +70,6 @@ class CommentArea extends Component {
       console.error('Errore durante la richiesta:', error);
     }
 
-    // Resetta i campi del form dopo l'invio della recensione
     this.setState({ newComment: '', newRate: 1 });
   };
 
@@ -94,8 +91,7 @@ class CommentArea extends Component {
               </ListGroup.Item>
             ))}
           </ListGroup>
-
-          {/* Form per inviare una nuova recensione */}
+          
           <Form onSubmit={this.handleSubmitReview}>
             <Form.Group controlId="newComment">
               <Form.Label>Aggiungi una recensione</Form.Label>

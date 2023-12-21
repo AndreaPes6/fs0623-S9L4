@@ -1,4 +1,3 @@
-// SingleBook.js
 import React, { Component } from 'react';
 import { Card, ListGroup, Button, Modal } from 'react-bootstrap';
 import CommentArea from './CommentArea';
