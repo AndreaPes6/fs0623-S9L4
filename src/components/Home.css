@@ -1,0 +1,25 @@
+#navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+#carte {
+    width: 20rem;
+}
+
+#prezzo {
+    border-style: none;
+}
+
+#contenitoreCarte {
+    text-align: -webkit-center;
+
+}
+
+#contenitoreHome {
+    background-color: currentColor;
+    margin-top: 5em;
+}
+
