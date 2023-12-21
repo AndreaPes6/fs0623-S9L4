@@ -1,3 +1,4 @@
+// Home.js
 import React, { Component } from 'react';
 import { Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import SingleBook from './SingleBook';
@@ -75,7 +76,7 @@ class Home extends Component {
         <Row className="justify-content-center gap-3 my-5 w-100">
           {filteredAndSearchedBooks.map((libro) => (
             <Col key={libro.id} md={2} className="mb-4">
-              <SingleBook book={libro} /> {/* Utilizza il componente SingleBook */}
+              <SingleBook book={libro} />
             </Col>
           ))}
         </Row>
